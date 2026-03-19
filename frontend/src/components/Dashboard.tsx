@@ -7,7 +7,7 @@ interface DashboardProps {
 export const Dashboard = ({ }: DashboardProps) => {
     return (
         <div>
-            Hello ai-stylist
+            Under constriction
         </div>
     );
 };

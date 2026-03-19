@@ -1,13 +1,16 @@
 import './App.css'
-import { Dashboard } from "./components/Dashboard";
+import { createRouter, RouterProvider } from '@tanstack/react-router';
+import { routeTree } from './routeTree.gen'
 
-function App() {
+const router = createRouter({ routeTree })
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
 
-  return (
-    <>
-      < Dashboard />
-    </>
-  )
+const App = () => {
+  return <RouterProvider router={router} />
 }
 
 export default App;
