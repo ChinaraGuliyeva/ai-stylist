@@ -1,5 +1,6 @@
 # Python
 venv/
+venvsource/
 __pycache__/
 *.pyc
 backend/uploads/*

@@ -1,0 +1,10 @@
+*.css linguist-vendored
+*.scss linguist-vendored
+*.svg linguist-vendored
+*.json linguist-vendored
+
+*.ts linguist-detectable
+*.tsx linguist-detectable
+*.py linguist-detectable
+
+frontend/src/**/*.css linguist-vendored
