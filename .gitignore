@@ -1,18 +1,14 @@
-__pycache__/
-*.py[cod]
-*$py.class
-.env
-.venv
-env/
+# Python
 venv/
-ENV/
+__pycache__/
+*.pyc
+backend/uploads/*
+!backend/uploads/.gitkeep
 
-temp.jpg
-uploads/
-.ipynb_checkpoints/
+# JS/React
+node_modules/
+dist/
+.env
 
-.vscode/
-.idea/
-
-*.pt
-*.onnx
+# AI Models (если веса тяжелые)
+backend/models/*.pt
