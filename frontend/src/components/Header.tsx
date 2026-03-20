@@ -1,10 +1,4 @@
-import React from 'react';
-
-interface HeaderProps {
-
-}
-
-export const Header = ({ }: HeaderProps) => {
+export const Header = () => {
   return (
     <header className="border-bottom">
       <nav className="d-flex justify-content-end py-3">

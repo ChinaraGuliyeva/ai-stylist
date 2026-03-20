@@ -1,13 +1,46 @@
-header{
-    padding: 0 30px;
+:root {
+  --color-primary: #1a1a1a;
+  --color-link: #666666;
+  --color-link-hover: #000000;
 }
 
-h1, h2, h3 {
-  font-family: 'Cormorant Garamond', serif!important;
+/*TO DO: responsive*/
+
+h1,
+h2,
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 100px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 body {
-  font-family: "Montserrat", serif!important;
+  font-family: "Montserrat", serif;
+  color: var(--color-primary);
+}
+
+p {
+  text-align: justify;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+}
+
+
+a:hover {
+  color: var(--color-link-hover);
+}
+
+header,
+.wrapper {
+  padding: 0 200px;
+}
+
+.dashboard-img {
+  width: 600px;
+  /*TO DO: Fix here for smaller screens*/
+  margin-left: 100px;
 }
