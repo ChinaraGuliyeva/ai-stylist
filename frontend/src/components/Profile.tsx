@@ -1,10 +1,4 @@
-import React from 'react';
-
-interface ProfileProps {
-
-}
-
-export const Profile = ({ }: ProfileProps) => {
+export const Profile = () => {
     return (
         <div>
             Hello profile

@@ -10,7 +10,6 @@ h1,
 h2,
 h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 100px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
@@ -39,8 +38,12 @@ header,
   padding: 0 200px;
 }
 
+.main-heading {
+  font-size: 100px;
+}
+
 .dashboard-img {
-  width: 600px;
+  width: 700px;
   /*TO DO: Fix here for smaller screens*/
   margin-left: 100px;
 }
