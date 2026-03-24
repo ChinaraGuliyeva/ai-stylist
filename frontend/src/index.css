@@ -47,3 +47,7 @@ header,
   /*TO DO: Fix here for smaller screens*/
   margin-left: 100px;
 }
+
+.about-img {
+  width: 400px;
+}
