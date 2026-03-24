@@ -1,5 +1,5 @@
 import { dashBoardHeading, dashBoardText } from '../textConstants';
-import girl from '../assets/devushka.jpg';
+import girl from '../assets/girl.jpg';
 
 export const Dashboard = () => {
     return (
