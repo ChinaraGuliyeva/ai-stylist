@@ -7,7 +7,7 @@
 		"start": "vite",
 		"build": "tsc -b && vite build",
 		"test": "vitest",
-		"lint": "eslint .",
+		"lint": "npx @biomejs/biome check --write",
 		"preview": "vite preview"
 	},
 	"dependencies": {
