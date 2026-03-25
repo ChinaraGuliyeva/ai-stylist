@@ -1,7 +1,3 @@
 export const Profile = () => {
-    return (
-        <div>
-            Hello profile
-        </div>
-    );
+	return <div>Hello profile</div>;
 };

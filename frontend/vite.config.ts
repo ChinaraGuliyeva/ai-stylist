@@ -1,16 +1,13 @@
-import { defineConfig } from 'vitest/config';
-import react from '@vitejs/plugin-react';
-import { tanstackRouter } from '@tanstack/router-plugin/vite';
+import { tanstackRouter } from "@tanstack/router-plugin/vite";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  plugins: [
-    tanstackRouter(),
-    react()
-  ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.ts',
-    css: true,
-  },
-})
+	plugins: [tanstackRouter(), react()],
+	test: {
+		globals: true,
+		environment: "jsdom",
+		setupFiles: "./src/setupTests.ts",
+		css: true,
+	},
+});
