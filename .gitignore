@@ -13,3 +13,4 @@ dist/
 
 # AI Models
 backend/models/*.pt
+.ruff_cache/
