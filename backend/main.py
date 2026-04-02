@@ -1,8 +1,16 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
+import logging
+
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    handlers=[
+        logging.StreamHandler(),
+    ]
+)
 
 app = FastAPI()
-
 
 class AIRequest(BaseModel):
     prompt: str
