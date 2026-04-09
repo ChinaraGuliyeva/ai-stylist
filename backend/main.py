@@ -1,6 +1,7 @@
+import logging
+
 from fastapi import FastAPI
 from pydantic import BaseModel
-import logging
 
 logging.basicConfig(
     level=logging.INFO,
