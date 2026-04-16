@@ -1,4 +1,5 @@
 import logging
+from logging.handlers import TimedRotatingFileHandler
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
@@ -12,6 +13,18 @@ logging.basicConfig(
     ],
 )
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+
+file_handler = TimedRotatingFileHandler(
+    "app.log", when="midnight", interval=1, backupCount=7
+)
+
+formatter = logging.Formatter("%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
+logger.info("The application has been launched, the file has been created!")
 
 app = FastAPI()
 
