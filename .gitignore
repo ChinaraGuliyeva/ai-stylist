@@ -1,4 +1,5 @@
 .vscode/
+uploads/
 
 # Python
 __pycache__/
