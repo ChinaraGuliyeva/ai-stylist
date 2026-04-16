@@ -1,4 +1,5 @@
 import logging
+import os
 from logging.handlers import TimedRotatingFileHandler
 
 
@@ -14,14 +15,22 @@ def setup_logging():
         stream_handler.setFormatter(stream_format)
         logger.addHandler(stream_handler)
 
+        log_dir = "logs"
+        log_file = os.path.join(log_dir, "app.log")
+
+        if not os.path.exists(log_dir):
+            os.makedirs(log_dir)
+
         file_handler = TimedRotatingFileHandler(
-            "app.log", when="midnight", interval=1, backupCount=7
+            log_file, when="midnight", interval=1, backupCount=7
         )
         file_format = logging.Formatter(
             "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
         )
         file_handler.setFormatter(file_format)
         logger.addHandler(file_handler)
+
     return logger
+
 
 logger = setup_logging()
