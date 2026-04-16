@@ -1,6 +1,7 @@
 import logging
 
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 logging.basicConfig(
@@ -8,13 +9,30 @@ logging.basicConfig(
     format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
     handlers=[
         logging.StreamHandler(),
-    ]
+    ],
 )
+logger = logging.getLogger(__name__)
 
 app = FastAPI()
 
+
 class AIRequest(BaseModel):
     prompt: str
+
+
+@app.middleware("http")
+async def catch_exceptions_middleware(request: Request, call_next):
+    try:
+        return await call_next(request)
+    except Exception as exc:
+        logger.error(f"Global error: {exc}", exc_info=True)
+        return JSONResponse(
+            status_code=500,
+            content={
+                "message": "Internal Server Error",
+                "detail": "Something went wrong",
+            },
+        )
 
 
 @app.get("/")
