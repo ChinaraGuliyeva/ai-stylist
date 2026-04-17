@@ -1,4 +1,4 @@
-from backend.services.image_service import ImageService
+from services.image_service import ImageService
 from fastapi import APIRouter, File, UploadFile
 
 router = APIRouter()
