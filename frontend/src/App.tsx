@@ -1,6 +1,8 @@
 import "./App.css";
 import { createRouter, RouterProvider } from "@tanstack/react-router";
+import { Provider } from "react-redux";
 import { routeTree } from "./routeTree.gen";
+import { store } from "./store";
 
 const router = createRouter({ routeTree });
 declare module "@tanstack/react-router" {
@@ -10,7 +12,11 @@ declare module "@tanstack/react-router" {
 }
 
 const App = () => {
-	return <RouterProvider router={router} />;
+	return (
+		<Provider store={store}>
+			<RouterProvider router={router} />
+		</Provider>
+	);
 };
 
 export default App;

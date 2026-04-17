@@ -50,3 +50,12 @@ header,
 .about-img {
 	width: 400px;
 }
+
+.upload-photo-form {
+	width: 600px;
+}
+
+.form-wrapper {
+	width: fit-content;
+	margin: 30px auto;
+}
