@@ -2,9 +2,12 @@ from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
+from api.v1.endpoints.clothes import router as clothes_router
 from logger_setup import logger
 
-app = FastAPI()
+app = FastAPI(title="AI Stylist API")
+
+app.include_router(clothes_router, prefix="/api/v1/clothes", tags=["Clothing Detection"])
 
 
 class AIRequest(BaseModel):
@@ -25,15 +28,3 @@ async def catch_exceptions_middleware(request: Request, call_next):
             },
         )
 
-
-@app.get("/")
-def read_root():
-    return {"status": "ok", "message": "Backend is running"}
-
-
-# @app.post("/ask")
-# async def ask_ai(request: AIRequest):
-#     user_text = request.prompt
-#     ai_response = f"
-
-#     return {"response": ai_response}
