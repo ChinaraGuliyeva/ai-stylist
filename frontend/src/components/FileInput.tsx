@@ -28,7 +28,7 @@ function FileInput<T extends FieldValues>({
 	return (
 		<div
 			{...getRootProps()}
-			style={{ border: "2px dashed #ccc", padding: "20px", cursor: "pointer" }}
+			className="file-form"
 		>
 			<input {...getInputProps()} />
 			<p>Upload photo</p>

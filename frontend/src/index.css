@@ -59,3 +59,9 @@ header,
 	width: fit-content;
 	margin: 30px auto;
 }
+
+.file-form {
+	border: 2px dashed #ccc;
+	padding: 20px;
+	cursor: pointer;
+}
