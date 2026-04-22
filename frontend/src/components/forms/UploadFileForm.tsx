@@ -7,7 +7,7 @@ interface UploadFileFormValues {
 }
 
 export const UploadFileForm = () => {
-	const { control, handleSubmit } = useForm<UploadFileFormValues>({
+	const { control, handleSubmit, formState: { isValid, isDirty, isSubmitting } } = useForm<UploadFileFormValues>({
 		defaultValues: {
 			clothingPhoto: null,
 		},
@@ -17,10 +17,10 @@ export const UploadFileForm = () => {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className="upload-photo-form">
-			{/* TO DO: Required - true */}
 			<FileInput name="clothingPhoto" control={control} />
 			<div className="d-flex justify-content-between mt-4">
-				<Button variant="outline-secondary" disabled={true}>
+				<Button variant="outline-secondary" type="submit"
+					disabled={!isDirty || !isValid || isSubmitting}>
 					Send
 				</Button>
 				<Button type="reset" variant="outline-danger">

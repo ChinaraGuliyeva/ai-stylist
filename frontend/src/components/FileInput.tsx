@@ -19,7 +19,6 @@ function FileInput<T extends FieldValues>({
 
 	const onDrop: DropzoneOptions["onDrop"] = (acceptedFiles) => {
 		field.onChange(acceptedFiles[0]);
-		console.log(`here`, acceptedFiles[0])
 		setPreview(URL.createObjectURL(acceptedFiles[0]));
 	};
 
