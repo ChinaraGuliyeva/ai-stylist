@@ -17,10 +17,16 @@ export const UploadFileForm = () => {
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className="upload-photo-form">
-			<FileInput control={control} name="clothingPhoto" />
-			<Button variant="outline-secondary" className="mt-3">
-				Send
-			</Button>
+			{/* TO DO: Required - true */}
+			<FileInput name="clothingPhoto" control={control} />
+			<div className="d-flex justify-content-between mt-4">
+				<Button variant="outline-secondary" disabled={true}>
+					Send
+				</Button>
+				<Button type="reset" variant="outline-danger">
+					Cancel
+				</Button>
+			</div>
 		</form>
 	);
 };
