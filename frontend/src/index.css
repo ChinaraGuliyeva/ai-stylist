@@ -69,4 +69,12 @@ header,
 	border: 2px dashed #ccc;
 	padding: 20px;
 	cursor: pointer;
+	height: 150px;
+}
+
+.file-img {
+	max-width: 150px;
+	max-height: 100px;
+	display: block;
+	margin: 0 auto;
 }

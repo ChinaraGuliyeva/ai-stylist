@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { type DropzoneOptions, useDropzone } from "react-dropzone";
 import {
 	type FieldValues,
@@ -14,9 +15,12 @@ function FileInput<T extends FieldValues>({
 	name,
 }: FileInputProps<T>) {
 	const { field } = useController({ control, name });
+	const [preview, setPreview] = useState<string | null>(null);
 
 	const onDrop: DropzoneOptions["onDrop"] = (acceptedFiles) => {
 		field.onChange(acceptedFiles[0]);
+		console.log(`here`, acceptedFiles[0])
+		setPreview(URL.createObjectURL(acceptedFiles[0]));
 	};
 
 	const { getRootProps, getInputProps } = useDropzone({
@@ -25,13 +29,27 @@ function FileInput<T extends FieldValues>({
 		multiple: false,
 	});
 
+	useEffect(() => {
+		return () => {
+			if (preview) URL.revokeObjectURL(preview);
+		};
+	}, [preview]);
+
 	return (
 		<div
 			{...getRootProps()}
 			className="file-form"
 		>
 			<input {...getInputProps()} />
-			<p className="text-center mt-1">Upload photo</p>
+
+			{preview ? (
+				<img
+					src={preview}
+					alt="Preview"
+					className="file-img"
+				/>
+			) : (
+				<p className="text-center mt-4">Upload photo</p>)}
 		</div>
 	);
 }
