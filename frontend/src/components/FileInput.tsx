@@ -31,7 +31,7 @@ function FileInput<T extends FieldValues>({
 			className="file-form"
 		>
 			<input {...getInputProps()} />
-			<p>Upload photo</p>
+			<p className="text-center mt-1">Upload photo</p>
 		</div>
 	);
 }
