@@ -1,4 +1,5 @@
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
@@ -7,7 +8,17 @@ from logger_setup import logger
 
 app = FastAPI(title="AI Stylist API")
 
-app.include_router(clothes_router, prefix="/api/v1/clothes", tags=["Clothing Detection"])
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins="http://localhost:5173",
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+app.include_router(
+    clothes_router, prefix="/api/v1/clothes", tags=["Clothing Detection"]
+)
 
 
 class AIRequest(BaseModel):
@@ -27,4 +38,3 @@ async def catch_exceptions_middleware(request: Request, call_next):
                 "detail": "Something went wrong",
             },
         )
-
