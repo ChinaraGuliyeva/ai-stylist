@@ -1,6 +1,7 @@
 import Button from "react-bootstrap/Button";
 import { useForm } from "react-hook-form";
 import FileInput from "../FileInput";
+import { useUploadClothingFileMutation } from "../../clothingApi";
 
 interface UploadFileFormValues {
 	clothingPhoto: File | null;
@@ -13,7 +14,16 @@ export const UploadFileForm = () => {
 		},
 	});
 
-	const onSubmit = (data: UploadFileFormValues) => console.log(data);
+	const [uploadClothingFile] = useUploadClothingFileMutation();
+
+	const onSubmit = async (data: UploadFileFormValues) => {
+		try {
+			await uploadClothingFile(data.clothingPhoto).unwrap();
+			console.log('File uploaded successfully!');
+		} catch (err) {
+			console.error('Failed to upload file:', err);
+		}
+	};
 
 	return (
 		<form onSubmit={handleSubmit(onSubmit)} className="upload-photo-form">
